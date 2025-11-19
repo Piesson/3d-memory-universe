@@ -266,14 +266,16 @@ export default function TourPage() {
 
       {!loading && !transitioning && !error && (() => {
         const floatingHotspots = getFloatingHotspots()
+        const verticalPosition = '50%'
+
         return floatingHotspots.map((hotspot, index) => {
           let position = undefined
           if (index === 0) {
-            position = { top: '50%', left: '50%' }
+            position = { top: verticalPosition, left: '10%' }
           } else if (index === 1) {
-            position = { top: '25%', left: '20%' }
+            position = { top: verticalPosition, left: '50%' }
           } else if (index === 2) {
-            position = { top: '35%', right: '20%' }
+            position = { top: verticalPosition, right: '10%' }
           }
 
           return (

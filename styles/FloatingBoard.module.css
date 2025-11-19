@@ -93,8 +93,13 @@
   background: #f5f5f5;
   border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 16px;
+  margin-bottom: 0;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.board.small .photoFrame {
+  border-radius: 4px;
+  margin-bottom: 0;
 }
 
 .photoFrame img {
