@@ -1,11 +1,11 @@
 {
-  "title": "Sample Memory Space",
-  "default": "entrance",
+  "title": "Office Memory Space",
+  "default": "office",
   "scenes": [
     {
-      "id": "entrance",
-      "name": "Entrance",
-      "imageUrl": "https://pannellum.org/images/alma.jpg",
+      "id": "office",
+      "name": "Main Office",
+      "imageUrl": "/tour/images/room1.jpg",
       "pitch": 0,
       "yaw": 0,
       "hotspots": [
@@ -13,47 +13,24 @@
           "pitch": -10,
           "yaw": 90,
           "type": "scene",
-          "text": "Living room",
-          "sceneId": "living"
+          "text": "Meeting Room",
+          "sceneId": "meeting"
         }
       ]
     },
     {
-      "id": "living",
-      "name": "Living room",
-      "imageUrl": "https://pannellum.org/images/cerro-toco-0.jpg",
-      "pitch": 0,
-      "yaw": 180,
-      "hotspots": [
-        {
-          "pitch": -10,
-          "yaw": -90,
-          "type": "scene",
-          "text": "Entrance",
-          "sceneId": "entrance"
-        },
-        {
-          "pitch": 0,
-          "yaw": 0,
-          "type": "scene",
-          "text": "Bathroom",
-          "sceneId": "bathroom"
-        }
-      ]
-    },
-    {
-      "id": "bathroom",
-      "name": "Bathroom",
-      "imageUrl": "https://pannellum.org/images/jfk.jpg",
+      "id": "meeting",
+      "name": "Meeting Room",
+      "imageUrl": "/tour/images/room2.jpg",
       "pitch": 0,
       "yaw": 0,
       "hotspots": [
         {
           "pitch": -10,
-          "yaw": 180,
+          "yaw": -90,
           "type": "scene",
-          "text": "Living room",
-          "sceneId": "living"
+          "text": "Main Office",
+          "sceneId": "office"
         }
       ]
     }
