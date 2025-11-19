@@ -10,7 +10,7 @@ export default function Document() {
         />
         <script
           src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"
-          async
+          defer
         />
       </Head>
       <body>
