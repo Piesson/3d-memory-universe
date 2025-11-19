@@ -1,11 +1,11 @@
 {
-  "title": "Sample Studio",
+  "title": "Sample Memory Space",
   "default": "entrance",
   "scenes": [
     {
       "id": "entrance",
       "name": "Entrance",
-      "imageUrl": "https://cdn.pannellum.org/2.5/examples/examplepano.jpg",
+      "imageUrl": "https://pannellum.org/images/alma.jpg",
       "pitch": 0,
       "yaw": 0,
       "hotspots": [
@@ -21,7 +21,7 @@
     {
       "id": "living",
       "name": "Living room",
-      "imageUrl": "https://cdn.pannellum.org/2.5/examples/examplepano.jpg",
+      "imageUrl": "https://pannellum.org/images/cerro-toco-0.jpg",
       "pitch": 0,
       "yaw": 180,
       "hotspots": [
@@ -44,7 +44,7 @@
     {
       "id": "bathroom",
       "name": "Bathroom",
-      "imageUrl": "https://cdn.pannellum.org/2.5/examples/examplepano.jpg",
+      "imageUrl": "https://pannellum.org/images/jfk.jpg",
       "pitch": 0,
       "yaw": 0,
       "hotspots": [
