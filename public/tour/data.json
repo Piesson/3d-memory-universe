@@ -33,7 +33,9 @@
           "text": "Memory 2",
           "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800",
           "caption": "Felt inspired and excited",
-          "audioUrl": "/memories/office-2.mp3"
+          "audioUrl": "/memories/office-2.mp3",
+          "floating": true,
+          "floatingSize": "small"
         },
         {
           "pitch": 0,
@@ -42,7 +44,9 @@
           "text": "Memory 3",
           "photo": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800",
           "caption": "Celebrated our progress together",
-          "audioUrl": "/memories/office-3.mp3"
+          "audioUrl": "/memories/office-3.mp3",
+          "floating": true,
+          "floatingSize": "small"
         }
       ]
     },

@@ -41,6 +41,29 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
+.board.small {
+  width: 80px;
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.board.small:hover {
+  transform:
+    perspective(1200px)
+    rotateY(0deg)
+    rotateX(0deg)
+    scale(1.1);
+}
+
+.board.small .caption {
+  display: none;
+}
+
 @keyframes float {
   0%, 100% {
     transform:

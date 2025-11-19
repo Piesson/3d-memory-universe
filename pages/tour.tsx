@@ -25,6 +25,7 @@ interface Hotspot {
   caption?: string
   audioUrl?: string
   floating?: boolean
+  floatingSize?: 'normal' | 'small'
 }
 
 interface TourData {
@@ -191,10 +192,10 @@ export default function TourPage() {
     return scene?.name || ''
   }
 
-  const getFloatingHotspot = () => {
-    if (!tourData || !currentScene) return null
+  const getFloatingHotspots = () => {
+    if (!tourData || !currentScene) return []
     const scene = tourData.scenes.find(s => s.id === currentScene)
-    return scene?.hotspots.find(h => h.floating && h.photo && h.caption && h.audioUrl)
+    return scene?.hotspots.filter(h => h.floating && h.photo && h.caption && h.audioUrl) || []
   }
 
   return (
@@ -264,18 +265,30 @@ export default function TourPage() {
       )}
 
       {!loading && !transitioning && !error && (() => {
-        const floatingHotspot = getFloatingHotspot()
-        return floatingHotspot ? (
-          <FloatingBoard
-            photo={floatingHotspot.photo!}
-            caption={floatingHotspot.caption!}
-            onClick={() => setMemoryBoard({
-              photo: floatingHotspot.photo!,
-              caption: floatingHotspot.caption!,
-              audioUrl: floatingHotspot.audioUrl!
-            })}
-          />
-        ) : null
+        const floatingHotspots = getFloatingHotspots()
+        return floatingHotspots.map((hotspot, index) => {
+          let position = undefined
+          if (hotspot.floatingSize === 'small') {
+            position = index === 0
+              ? { top: '20%', left: '15%' }
+              : { top: '30%', right: '15%' }
+          }
+
+          return (
+            <FloatingBoard
+              key={index}
+              photo={hotspot.photo!}
+              caption={hotspot.caption!}
+              size={hotspot.floatingSize || 'normal'}
+              position={position}
+              onClick={() => setMemoryBoard({
+                photo: hotspot.photo!,
+                caption: hotspot.caption!,
+                audioUrl: hotspot.audioUrl!
+              })}
+            />
+          )
+        })
       })()}
 
       {memoryBoard && (
