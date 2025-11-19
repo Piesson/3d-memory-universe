@@ -1,0 +1,61 @@
+{
+  "title": "Sample Studio",
+  "default": "entrance",
+  "scenes": [
+    {
+      "id": "entrance",
+      "name": "Entrance",
+      "imageUrl": "https://cdn.pannellum.org/2.5/examples/examplepano.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hotspots": [
+        {
+          "pitch": -10,
+          "yaw": 90,
+          "type": "scene",
+          "text": "Living room",
+          "sceneId": "living"
+        }
+      ]
+    },
+    {
+      "id": "living",
+      "name": "Living room",
+      "imageUrl": "https://cdn.pannellum.org/2.5/examples/examplepano.jpg",
+      "pitch": 0,
+      "yaw": 180,
+      "hotspots": [
+        {
+          "pitch": -10,
+          "yaw": -90,
+          "type": "scene",
+          "text": "Entrance",
+          "sceneId": "entrance"
+        },
+        {
+          "pitch": 0,
+          "yaw": 0,
+          "type": "scene",
+          "text": "Bathroom",
+          "sceneId": "bathroom"
+        }
+      ]
+    },
+    {
+      "id": "bathroom",
+      "name": "Bathroom",
+      "imageUrl": "https://cdn.pannellum.org/2.5/examples/examplepano.jpg",
+      "pitch": 0,
+      "yaw": 0,
+      "hotspots": [
+        {
+          "pitch": -10,
+          "yaw": 180,
+          "type": "scene",
+          "text": "Living room",
+          "sceneId": "living"
+        }
+      ]
+    }
+  ]
+}
