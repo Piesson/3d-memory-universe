@@ -23,7 +23,8 @@
           "text": "Memory 1",
           "photo": "https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?w=800",
           "caption": "Presented our idea to the team",
-          "audioUrl": "/memories/office-1.mp3"
+          "audioUrl": "/memories/office-1.mp3",
+          "floating": true
         },
         {
           "pitch": 0,

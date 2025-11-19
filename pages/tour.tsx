@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import styles from '@/styles/Tour.module.css'
 import type { PannellumConfig, PannellumViewer } from '@/types/pannellum'
 import MemoryBoard from '@/components/MemoryBoard'
+import FloatingBoard from '@/components/FloatingBoard'
 
 interface Scene {
   id: string
@@ -23,6 +24,7 @@ interface Hotspot {
   photo?: string
   caption?: string
   audioUrl?: string
+  floating?: boolean
 }
 
 interface TourData {
@@ -116,6 +118,11 @@ export default function TourPage() {
 
         scene.hotspots.forEach((hotspot, index) => {
           const isMemoryBoard = hotspot.type === 'info'
+
+          if (hotspot.floating) {
+            return
+          }
+
           viewerInstance.addHotSpot({
             id: `hotspot-${index}`,
             pitch: hotspot.pitch,
@@ -184,6 +191,12 @@ export default function TourPage() {
     return scene?.name || ''
   }
 
+  const getFloatingHotspot = () => {
+    if (!tourData || !currentScene) return null
+    const scene = tourData.scenes.find(s => s.id === currentScene)
+    return scene?.hotspots.find(h => h.floating && h.photo && h.caption && h.audioUrl)
+  }
+
   return (
     <div className={styles.container}>
       {(loading || transitioning) && !error && (
@@ -249,6 +262,21 @@ export default function TourPage() {
           )}
         </>
       )}
+
+      {!loading && !transitioning && !error && (() => {
+        const floatingHotspot = getFloatingHotspot()
+        return floatingHotspot ? (
+          <FloatingBoard
+            photo={floatingHotspot.photo!}
+            caption={floatingHotspot.caption!}
+            onClick={() => setMemoryBoard({
+              photo: floatingHotspot.photo!,
+              caption: floatingHotspot.caption!,
+              audioUrl: floatingHotspot.audioUrl!
+            })}
+          />
+        ) : null
+      })()}
 
       {memoryBoard && (
         <MemoryBoard
