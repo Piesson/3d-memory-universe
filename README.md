@@ -1,6 +1,8 @@
 # 3D Memory Universe
 
-Transform your space into an immersive 3D experience with a single photo.
+**Relive your memories in 3D space.**
+
+AI-driven personal memory reconstruction platform. Turn a single photo into an immersive, walkable experience. Recreate emotional moments as interactable virtual environments.
 
 ## Quick Start
 
@@ -13,11 +15,11 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## Features
 
-- **Minimal Upload**: Single photo upload interface
-- **360° Tours**: Immersive panoramic experiences
-- **Professional UI**: Clean, McKinsey-style design
-- **Zero Backend**: Fully static prototype
-- **Instant Demo**: Works out of the box with sample data
+- **Memory Reconstruction**: Upload a single photo and step back into that moment
+- **360° Immersive Experience**: Walk through your memories in panoramic 3D
+- **Emotional Design**: Clean, focused interface that honors your memories
+- **Instant Prototype**: AI-reconstructed memory spaces (demo with sample data)
+- **Multi-sensory**: Visual navigation with ambient context
 
 ## Architecture
 
@@ -63,18 +65,27 @@ npm run build    # Production build
 npm run start    # Start production server
 ```
 
-## Prototype Notes
+## Vision & Current State
 
-This is a **lean MVP** for demonstration:
+### The Vision
+Turn photos into **AI-reconstructed 3D memory spaces** you can walk through:
+- Automatic scene generation from single images
+- Ambient soundscapes and AI-generated narration
+- Shareable memory museums for families
+- VR/AR immersive experiences
 
-- Upload is **fake** (client-side only, no server processing)
-- Shows **pre-made tours** (not generated from upload)
+### This Prototype
+A **lean MVP** demonstrating the core experience:
+- Upload flow (client-side simulation)
+- Immersive 3D navigation with Pannellum
+- Professional emotional design
 - Perfect for **UX validation** and **investor demos**
 
-For production, integrate:
-- Real upload API
-- AI-powered 3D generation
-- Database for user tours
+### Production Roadmap
+- AI-powered 3D reconstruction (NeRF + generative modeling)
+- Voice-to-narration audio
+- User authentication & memory storage
+- Mobile app + VR/AR support
 
 ## License
 

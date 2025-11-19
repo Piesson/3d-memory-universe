@@ -32,15 +32,15 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.content}>
           <h1 className={styles.title}>
-            Transform your space
+            Relive your memories
             <br />
-            into an immersive
-            <br />
-            3D experience
+            in 3D space
           </h1>
 
           <p className={styles.subtitle}>
-            Upload a single photo and explore your space in 360°
+            Turn a single photo into an immersive experience.
+            <br />
+            Walk through the moments that matter.
           </p>
 
           <div className={styles.uploadSection}>
@@ -67,14 +67,14 @@ export default function Home() {
 
             {selectedFile && !loading && (
               <button onClick={handleGenerate} className={styles.button}>
-                Generate 3D tour
+                Relive this memory
               </button>
             )}
 
             {loading && (
               <div className={styles.loadingState}>
                 <div className={styles.spinner} />
-                <p className={styles.loadingText}>Analyzing your space</p>
+                <p className={styles.loadingText}>Reconstructing your memory</p>
               </div>
             )}
           </div>
