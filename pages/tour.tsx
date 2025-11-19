@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/router'
 import styles from '@/styles/Tour.module.css'
 import type { PannellumConfig, PannellumViewer } from '@/types/pannellum'
+import MemoryBoard from '@/components/MemoryBoard'
 
 interface Scene {
   id: string
@@ -18,7 +19,10 @@ interface Hotspot {
   yaw: number
   type: string
   text: string
-  sceneId: string
+  sceneId?: string
+  photo?: string
+  caption?: string
+  audioUrl?: string
 }
 
 interface TourData {
@@ -36,6 +40,7 @@ export default function TourPage() {
   const [loading, setLoading] = useState(true)
   const [transitioning, setTransitioning] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [memoryBoard, setMemoryBoard] = useState<{photo: string, caption: string, audioUrl: string} | null>(null)
   const retryCountRef = useRef(0)
 
   useEffect(() => {
@@ -110,22 +115,31 @@ export default function TourPage() {
         setError(null)
 
         scene.hotspots.forEach((hotspot, index) => {
+          const isMemoryBoard = hotspot.type === 'info'
           viewerInstance.addHotSpot({
             id: `hotspot-${index}`,
             pitch: hotspot.pitch,
             yaw: hotspot.yaw,
             type: 'custom',
-            cssClass: 'custom-hotspot',
+            cssClass: isMemoryBoard ? 'memory-hotspot' : 'custom-hotspot',
             createTooltipFunc: (hotSpotDiv: HTMLElement) => {
               hotSpotDiv.innerHTML = `
                 <div class="hotspot-content">
-                  <div class="hotspot-icon">→</div>
+                  <div class="hotspot-icon">${isMemoryBoard ? '📋' : '→'}</div>
                   <div class="hotspot-label">${hotspot.text}</div>
                 </div>
               `
             },
             clickHandlerFunc: () => {
-              navigateToScene(hotspot.sceneId)
+              if (isMemoryBoard && hotspot.photo && hotspot.caption && hotspot.audioUrl) {
+                setMemoryBoard({
+                  photo: hotspot.photo,
+                  caption: hotspot.caption,
+                  audioUrl: hotspot.audioUrl
+                })
+              } else if (hotspot.sceneId) {
+                navigateToScene(hotspot.sceneId)
+              }
             }
           })
         })
@@ -234,6 +248,15 @@ export default function TourPage() {
             </div>
           )}
         </>
+      )}
+
+      {memoryBoard && (
+        <MemoryBoard
+          photo={memoryBoard.photo}
+          caption={memoryBoard.caption}
+          audioUrl={memoryBoard.audioUrl}
+          onClose={() => setMemoryBoard(null)}
+        />
       )}
     </div>
   )
