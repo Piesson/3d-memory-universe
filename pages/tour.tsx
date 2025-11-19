@@ -268,10 +268,12 @@ export default function TourPage() {
         const floatingHotspots = getFloatingHotspots()
         return floatingHotspots.map((hotspot, index) => {
           let position = undefined
-          if (hotspot.floatingSize === 'small') {
-            position = index === 0
-              ? { top: '20%', left: '15%' }
-              : { top: '30%', right: '15%' }
+          if (index === 0) {
+            position = { top: '50%', left: '50%' }
+          } else if (index === 1) {
+            position = { top: '25%', left: '20%' }
+          } else if (index === 2) {
+            position = { top: '35%', right: '20%' }
           }
 
           return (
