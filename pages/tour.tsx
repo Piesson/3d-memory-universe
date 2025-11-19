@@ -9,6 +9,7 @@ interface Scene {
   imageUrl: string
   pitch: number
   yaw: number
+  hfov?: number
   hotspots: Hotspot[]
 }
 
@@ -95,7 +96,7 @@ export default function TourPage() {
         panorama: scene.imageUrl,
         pitch: scene.pitch,
         yaw: scene.yaw,
-        hfov: 110,
+        hfov: scene.hfov || 110,
         autoLoad: true,
         showControls: false,
         mouseZoom: false,

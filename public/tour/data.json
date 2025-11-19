@@ -24,6 +24,7 @@
       "imageUrl": "/tour/images/room2.jpg",
       "pitch": 0,
       "yaw": 0,
+      "hfov": 120,
       "hotspots": [
         {
           "pitch": -10,
