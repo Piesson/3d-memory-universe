@@ -6,9 +6,10 @@ interface MemoryBoardProps {
   caption: string
   audioUrl: string
   onClose: () => void
+  imagePosition?: string
 }
 
-export default function MemoryBoard({ photo, caption, audioUrl, onClose }: MemoryBoardProps) {
+export default function MemoryBoard({ photo, caption, audioUrl, onClose, imagePosition = 'center top' }: MemoryBoardProps) {
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
 
@@ -42,7 +43,7 @@ export default function MemoryBoard({ photo, caption, audioUrl, onClose }: Memor
         </button>
 
         <div className={styles.photoFrame}>
-          <img src={photo} alt={caption} />
+          <img src={photo} alt={caption} style={{ objectPosition: imagePosition }} />
         </div>
 
         <p className={styles.caption}>{caption}</p>

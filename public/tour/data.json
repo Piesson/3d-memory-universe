@@ -32,7 +32,8 @@
           "text": "Memory 2",
           "photo": "/memories/center-memory.png",
           "caption": "We had an ice breaker session. The random word game was so much fun!",
-          "audioUrl": "/memories/office-2.mp3"
+          "audioUrl": "/memories/office-2.mp3",
+          "imagePosition": "center 40%"
         },
         {
           "pitch": 0,
@@ -41,7 +42,8 @@
           "text": "Memory 3",
           "photo": "/memories/meetingroom.jpg",
           "caption": "We teamed up so fast and got this meeting room as our station. So lucky!",
-          "audioUrl": "/memories/office-3.mp3"
+          "audioUrl": "/memories/office-3.mp3",
+          "imagePosition": "center 40%"
         }
       ]
     },
