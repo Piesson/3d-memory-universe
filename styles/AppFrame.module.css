@@ -38,10 +38,11 @@
 .screen {
   position: relative;
   width: 438px;
-  height: 955px;
+  height: 940px;
   background: #fff;
   overflow: hidden;
   cursor: pointer;
+  border-radius: 45px;
 }
 
 .splashImage {
