@@ -24,12 +24,25 @@ export default function AppFrame() {
     <div className={styles.container}>
       <div className={styles.phoneFrame}>
         <div className={styles.notch} />
-        <div className={styles.screen} onClick={handleScreenClick}>
-          <img
-            src={splashScreens[currentScreen]}
-            alt={`Screen ${currentScreen + 1}`}
-            className={styles.splashImage}
-          />
+        <div className={styles.screen}>
+          <div onClick={handleScreenClick} style={{ position: 'relative', width: '100%', height: '100%' }}>
+            <img
+              src={splashScreens[currentScreen]}
+              alt={`Screen ${currentScreen + 1}`}
+              className={styles.splashImage}
+            />
+          </div>
+          {currentScreen === 0 && (
+            <a
+              href="https://forms.gle/fhUpHaZemVHwSsTs7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.waitlistButton}
+              onClick={(e) => e.stopPropagation()}
+            >
+              Join Waitlist
+            </a>
+          )}
         </div>
       </div>
     </div>

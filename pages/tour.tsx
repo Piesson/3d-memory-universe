@@ -267,6 +267,15 @@ export default function TourPage() {
           onClose={() => setMemoryBoard(null)}
         />
       )}
+
+      <a
+        href="https://forms.gle/fhUpHaZemVHwSsTs7"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.waitlistButton}
+      >
+        Join Waitlist
+      </a>
     </div>
   )
 }
