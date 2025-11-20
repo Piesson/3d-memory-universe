@@ -30,8 +30,8 @@
           "yaw": 0,
           "type": "info",
           "text": "Memory 2",
-          "photo": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800",
-          "caption": "Felt inspired and excited",
+          "photo": "/memories/center-memory.png",
+          "caption": "We had an ice breaker session. The random word game was so much fun!",
           "audioUrl": "/memories/office-2.mp3"
         },
         {
@@ -40,7 +40,7 @@
           "type": "info",
           "text": "Memory 3",
           "photo": "/memories/meetingroom.jpg",
-          "caption": "Celebrated our progress together",
+          "caption": "We teamed up so fast and got this meeting room as our station. So lucky!",
           "audioUrl": "/memories/office-3.mp3"
         }
       ]
