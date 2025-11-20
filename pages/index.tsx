@@ -4,23 +4,24 @@ import styles from '@/styles/Home.module.css'
 
 export default function Home() {
   const router = useRouter()
-  const [selectedFile, setSelectedFile] = useState<File | null>(null)
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([])
   const [loading, setLoading] = useState(false)
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (!file) return
+    const files = Array.from(e.target.files || [])
+    if (files.length === 0) return
 
-    if (!file.type.startsWith('image/')) {
-      alert('Please select an image file')
+    const imageFiles = files.filter(f => f.type.startsWith('image/'))
+    if (imageFiles.length !== files.length) {
+      alert('Please select only image files')
       return
     }
 
-    setSelectedFile(file)
+    setSelectedFiles(imageFiles)
   }
 
   const handleGenerate = async () => {
-    if (!selectedFile) return
+    if (selectedFiles.length === 0) return
 
     setLoading(true)
     await new Promise(resolve => setTimeout(resolve, 2500))
@@ -48,24 +49,22 @@ export default function Home() {
               type="file"
               id="file-input"
               accept="image/*"
+              multiple
               onChange={handleFileSelect}
               className={styles.fileInput}
             />
 
             <label htmlFor="file-input" className={styles.fileLabel}>
-              {selectedFile ? (
+              {selectedFiles.length > 0 ? (
                 <span className={styles.fileName}>
-                  {selectedFile.name}
-                  <span className={styles.fileSize}>
-                    {(selectedFile.size / 1024 / 1024).toFixed(1)} MB
-                  </span>
+                  {selectedFiles.length} photo{selectedFiles.length > 1 ? 's' : ''} selected
                 </span>
               ) : (
-                'Select photo'
+                'Select photos'
               )}
             </label>
 
-            {selectedFile && !loading && (
+            {selectedFiles.length > 0 && !loading && (
               <button onClick={handleGenerate} className={styles.button}>
                 Relive this memory
               </button>
