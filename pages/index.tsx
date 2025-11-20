@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
+import MobileWrapper from '@/components/MobileWrapper'
 import styles from '@/styles/Home.module.css'
 
 export default function Home() {
   const router = useRouter()
+  const showFrame = router.query.frame !== 'false'
   const [selectedFiles, setSelectedFiles] = useState<File[]>([])
   const [loading, setLoading] = useState(false)
 
@@ -28,7 +30,7 @@ export default function Home() {
     router.push('/tour')
   }
 
-  return (
+  const content = (
     <div className={styles.container}>
       <main className={styles.main}>
         <div className={styles.content}>
@@ -81,4 +83,6 @@ export default function Home() {
       </main>
     </div>
   )
+
+  return <MobileWrapper showFrame={showFrame}>{content}</MobileWrapper>
 }

@@ -1,0 +1,72 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+}
+
+.phoneFrame {
+  position: relative;
+  width: 375px;
+  height: 812px;
+  background: #000;
+  border-radius: 40px;
+  box-shadow:
+    0 0 0 12px #1a1a1a,
+    0 0 0 13px #333,
+    0 20px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 30px;
+  background: #000;
+  border-radius: 0 0 20px 20px;
+  z-index: 10;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  overflow: auto;
+  cursor: pointer;
+}
+
+.splashImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.appContent {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .phoneFrame {
+    width: 100%;
+    max-width: 375px;
+    height: 100vh;
+    max-height: 812px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .notch {
+    display: none;
+  }
+
+  .container {
+    padding: 0;
+    background: #000;
+  }
+}
