@@ -18,7 +18,7 @@
         },
         {
           "pitch": 0,
-          "yaw": -90,
+          "yaw": -120,
           "type": "info",
           "text": "Memory 1",
           "photo": "/memories/startup-korea.jpg",
@@ -39,7 +39,7 @@
           "yaw": 90,
           "type": "info",
           "text": "Memory 3",
-          "photo": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+          "photo": "/memories/meetingroom.jpg",
           "caption": "Celebrated our progress together",
           "audioUrl": "/memories/office-3.mp3"
         }
