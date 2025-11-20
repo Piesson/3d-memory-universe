@@ -9,14 +9,15 @@
 
 .phoneFrame {
   position: relative;
-  width: 375px;
-  height: 812px;
+  width: 393px;
+  height: 852px;
   background: #000;
-  border-radius: 40px;
+  border-radius: 55px;
   box-shadow:
-    0 0 0 12px #1a1a1a,
-    0 0 0 13px #333,
-    0 20px 60px rgba(0, 0, 0, 0.5);
+    0 0 0 2px #1d1d1f,
+    0 0 0 14px #3a3a3c,
+    0 0 0 16px #1d1d1f,
+    0 30px 80px rgba(0, 0, 0, 0.6);
   overflow: hidden;
 }
 
@@ -25,11 +26,12 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 180px;
-  height: 30px;
+  width: 125px;
+  height: 37px;
   background: #000;
   border-radius: 0 0 20px 20px;
   z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .screen {
@@ -54,9 +56,9 @@
 @media (max-width: 768px) {
   .phoneFrame {
     width: 100%;
-    max-width: 375px;
+    max-width: 393px;
     height: 100vh;
-    max-height: 812px;
+    max-height: 852px;
     border-radius: 0;
     box-shadow: none;
   }
