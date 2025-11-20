@@ -9,8 +9,8 @@
 
 .phoneFrame {
   position: relative;
-  width: 432px;
-  height: 882px;
+  width: 438px;
+  height: 955px;
   background-image: url('/iphone-frame.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -24,14 +24,14 @@
 
 .screen {
   position: absolute;
-  top: 3.5%;
-  left: 3.5%;
-  width: 93%;
-  height: 93%;
+  top: 2.5%;
+  left: 13%;
+  width: 74%;
+  height: 95%;
   background: #fff;
   overflow: auto;
   cursor: pointer;
-  border-radius: 45px;
+  border-radius: 40px;
 }
 
 .splashImage {
