@@ -47,9 +47,9 @@
 
 .waitlistButton {
   position: absolute;
-  bottom: 30px;
+  top: 55%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
   padding: 16px 40px;
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -69,7 +69,7 @@
 .waitlistButton:hover {
   background: #fff;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  transform: translateX(-50%) translateY(-2px);
+  transform: translate(-50%, calc(-50% - 2px));
 }
 
 .splashImage {
