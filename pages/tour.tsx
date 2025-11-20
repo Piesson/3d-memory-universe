@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'
 import styles from '@/styles/Tour.module.css'
 import type { PannellumConfig, PannellumViewer } from '@/types/pannellum'
 import MemoryBoard from '@/components/MemoryBoard'
-import FloatingBoard from '@/components/FloatingBoard'
 
 interface Scene {
   id: string
@@ -24,8 +23,6 @@ interface Hotspot {
   photo?: string
   caption?: string
   audioUrl?: string
-  floating?: boolean
-  floatingSize?: 'normal' | 'small'
 }
 
 interface TourData {
@@ -120,10 +117,6 @@ export default function TourPage() {
         scene.hotspots.forEach((hotspot, index) => {
           const isMemoryBoard = hotspot.type === 'info'
 
-          if (hotspot.floating) {
-            return
-          }
-
           viewerInstance.addHotSpot({
             id: `hotspot-${index}`,
             pitch: hotspot.pitch,
@@ -131,12 +124,20 @@ export default function TourPage() {
             type: 'custom',
             cssClass: isMemoryBoard ? 'memory-hotspot' : 'custom-hotspot',
             createTooltipFunc: (hotSpotDiv: HTMLElement) => {
-              hotSpotDiv.innerHTML = `
-                <div class="hotspot-content">
-                  <div class="hotspot-icon">${isMemoryBoard ? '📋' : '→'}</div>
-                  <div class="hotspot-label">${hotspot.text}</div>
-                </div>
-              `
+              if (isMemoryBoard && hotspot.photo) {
+                hotSpotDiv.innerHTML = `
+                  <div class="floating-memory-board">
+                    <img src="${hotspot.photo}" alt="${hotspot.caption || ''}" />
+                  </div>
+                `
+              } else {
+                hotSpotDiv.innerHTML = `
+                  <div class="hotspot-content">
+                    <div class="hotspot-icon">→</div>
+                    <div class="hotspot-label">${hotspot.text}</div>
+                  </div>
+                `
+              }
             },
             clickHandlerFunc: () => {
               if (isMemoryBoard && hotspot.photo && hotspot.caption && hotspot.audioUrl) {
@@ -190,12 +191,6 @@ export default function TourPage() {
     if (!tourData || !currentScene) return ''
     const scene = tourData.scenes.find(s => s.id === currentScene)
     return scene?.name || ''
-  }
-
-  const getFloatingHotspots = () => {
-    if (!tourData || !currentScene) return []
-    const scene = tourData.scenes.find(s => s.id === currentScene)
-    return scene?.hotspots.filter(h => h.floating && h.photo && h.caption && h.audioUrl) || []
   }
 
   return (
@@ -263,37 +258,6 @@ export default function TourPage() {
           )}
         </>
       )}
-
-      {!loading && !transitioning && !error && (() => {
-        const floatingHotspots = getFloatingHotspots()
-        const verticalPosition = '50%'
-
-        return floatingHotspots.map((hotspot, index) => {
-          let position = undefined
-          if (index === 0) {
-            position = { top: verticalPosition, left: '10%' }
-          } else if (index === 1) {
-            position = { top: verticalPosition, left: '50%' }
-          } else if (index === 2) {
-            position = { top: verticalPosition, right: '10%' }
-          }
-
-          return (
-            <FloatingBoard
-              key={index}
-              photo={hotspot.photo!}
-              caption={hotspot.caption!}
-              size={hotspot.floatingSize || 'normal'}
-              position={position}
-              onClick={() => setMemoryBoard({
-                photo: hotspot.photo!,
-                caption: hotspot.caption!,
-                audioUrl: hotspot.audioUrl!
-              })}
-            />
-          )
-        })
-      })()}
 
       {memoryBoard && (
         <MemoryBoard
